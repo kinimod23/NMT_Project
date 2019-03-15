@@ -11,7 +11,7 @@
 
 ----------------------------------------------------------------------------------------------
 
-![Alt text](../master/pre-trained_embs//nlr_analysis1.png?raw=true "NLRs to analyse")
+![Alt text](../master/pre-trained_embs//nlr_analysis.png?raw=true "NLRs to analyse")
 
 ## ToDo
 * train a sockeye NMT model with pre-trained glove embeddings on the Europarl corpus

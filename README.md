@@ -1,29 +1,41 @@
 # Neural Machine Translation Project Module
 
 * ELMo https://arxiv.org/pdf/1802.05365
-* BERT https://arxiv.org/pdf/1810.04805
+* doc2vec https://arxiv.org/pdf/1405.4053
+* zalando http://www.aclweb.org/anthology/C18-1139
+* GloVe http://www.aclweb.org/anthology/D14-1162
 * Evaluation methods http://www.aclweb.org/anthology/D15-1036
 * Intrinsic Evaluation http://www.aclweb.org/anthology/W16-2507
 * preprocessing steps and hyperparameter settings http://www.aclweb.org/anthology/Q15-1016
 * Europarl Corpus http://www.statmt.org/europarl/ \\ http://www.aclweb.org/anthology/E17-2038
 
+
+
+![Alt text](/Users/dominik_pfuetze/Desktop/NMT_Project/nlr_analysis.png?raw=true "NLRs to analyse")
+
 ----------------------------------------------------------------------------------------------
 ## ToDo
-* implement ELMo
-* implement BERT
+* train a sockeye NMT model with pre-trained glove embeddings on the Europarl corpus
+
+* overcome challenges with other Embeddings to be able to train them on sockeye too
 
 ----------------------------------------------------------------------------------------
 ## What I have done
+
+* successfully run a NMT toy model using sockeye
+
+* implemented glove, zalando, elmo and paragraph-vector NLRs
+	* for all there are still some challenges to overcome except of glove
+
 * written clear Exposé with goals of this project
     * Literature survey on Research Questions
-
 
 ---------------------------------------------------------------------------------------------------
 
 ### Project Organisation
 
 #### A short memorable project title.
-An Evaluation of different Natural Language Embeddings by using an identical Neural Machine Translation Network
+An Evaluation of different Natural Language Representations by using an identical Neural Machine Translation Network
 
 #### What is the problem you want to address? How do you determine whether you have solved it?
 To categorise distinct approaches (character/word/sentence/thought input) for generating word embeddings.

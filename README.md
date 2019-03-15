@@ -23,9 +23,11 @@
 ----------------------------------------------------------------------------------------
 ## What I have done
 * successfully run a NMT toy model using sockeye
+
 * implemented glove, zalando, elmo and paragraph-vector NLRs
 	* for all there are still some challenges to overcome except of glove
-* written clear Exposé with goals of this project
+	
+* written Exposé with goals of this project
     * Literature survey on Research Questions
 
 ---------------------------------------------------------------------------------------------------

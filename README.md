@@ -9,10 +9,10 @@
 * preprocessing steps and hyperparameter settings http://www.aclweb.org/anthology/Q15-1016
 * Europarl Corpus http://www.statmt.org/europarl/ \\ http://www.aclweb.org/anthology/E17-2038
 
+----------------------------------------------------------------------------------------------
 
 ![Alt text](../master/pre-trained_embs//nlr_analysis.png?raw=true "NLRs to analyse")
 
-----------------------------------------------------------------------------------------------
 ## ToDo
 * train a sockeye NMT model with pre-trained glove embeddings on the Europarl corpus
 

@@ -25,8 +25,8 @@ python -m sockeye.prepare_data \
                         -t $data/train.BPE.de \
                         -o $data/train_data
 
-rm $data/train.BPE.de
-rm $data/train.BPE.en
+#rm $data/train.BPE.de
+#rm $data/train.BPE.en
 
 
 echo "============================================================"

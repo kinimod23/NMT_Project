@@ -45,7 +45,7 @@ subword-nmt learn-joint-bpe-and-vocab --input $data/corpus.tc.de $data/corpus.tc
                                     -o $data/bpe.codes \
                                     --write-vocabulary $data/bpe.vocab.de $data/bpe.vocab.en
 echo "--"
-echov "BPE vocabulary successfully built"
+echo "BPE vocabulary successfully built"
 echo ""
 
 echo "============================================================"
@@ -76,8 +76,6 @@ echo "--"
 echo "BPE vocabulary successfully applied on test set"
 echo ""
 
-rm $data/corpus.tc.de
-rm $data/corpus.tc.en
 
 
 

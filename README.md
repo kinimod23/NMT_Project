@@ -11,12 +11,53 @@
 
 ----------------------------------------------------------------------------------------------
 
-![Alt text](../master/pre-trained_embs//nlr_analysis.png?raw=true "NLRs to analyse")
+![Alt text](../master/NLR_pre-training//nlr_analysis.png?raw=true "NLRs to analyse")
+
+----------------------------------------------------------------------------------------------
+## Steps
+
+Clone this repository in the desired place:
+
+    git clone https://github.com/bricksdont/sockeye-toy-models
+    cd NMT_Project/NMT_environment/shell_scripts
+
+Set up the NMT environment:
+
+    bash sockeye_wmt_env.sh
+
+Preprocess the the data used:
+
+    bash sockeye_wmt_prep.sh
+
+Pre-train glove embeddings:
+
+    cd NMT/Project/NLR_pre-training
+
+Prepare corpus for glove training process:
+
+    bash prep_corpus.sh
+
+Train glove embeddings:
+
+    bash glove_training.sh
+
+Initialize pre-trained embedding matrix for final NMT training
+
+    cd NMT_Project/NMT_environment/shell_scripts
+    bash sockeye_wmt_create.embs.sh
+    
+Final NMT training:
+
+    bash sockeye_wmt_train.sh
 
 ----------------------------------------------------------------------------------------------
 
 ## ToDo
-* train a sockeye NMT model with pre-trained glove embeddings on the Europarl corpus
+* glove embeddings are not yet trained on BPE-Units
+
+* evaluation is missing
+
+* train a sockeye NMT model with pre-trained glove embeddings on the wmt'17 corpus
 
 * overcome challenges with other Embeddings to be able to train them on sockeye too
 

@@ -25,7 +25,7 @@ Set up the NMT environment:
 
     bash sockeye_wmt_env.sh
 
-Preprocess the the data used:
+Preprocess the data used:
 
     bash sockeye_wmt_prep.sh
 
@@ -41,7 +41,7 @@ Train glove embeddings:
 
     bash glove_training.sh
 
-Initialize pre-trained embedding matrix for final NMT training
+Initialize pre-trained embedding matrix for final NMT training:
 
     cd NMT_Project/NMT_environment/shell_scripts
     bash sockeye_wmt_create.embs.sh

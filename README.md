@@ -31,7 +31,7 @@ Preprocess the data used:
 
 Pre-train glove embeddings:
 
-    cd NMT/Project/NLR_pre-training
+    cd NMT_Project/NLR_pre-training/glove
 
 Prepare corpus for glove training process:
 

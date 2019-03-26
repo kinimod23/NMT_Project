@@ -7,7 +7,7 @@
 * Evaluation methods http://www.aclweb.org/anthology/D15-1036
 * Intrinsic Evaluation http://www.aclweb.org/anthology/W16-2507
 * preprocessing steps and hyperparameter settings http://www.aclweb.org/anthology/Q15-1016
-* Europarl Corpus http://www.statmt.org/europarl/ \\ http://www.aclweb.org/anthology/E17-2038
+* WMT 2017 Translation Task http://data.statmt.org/wmt17/translation-task/preprocessed/de-en/
 
 ----------------------------------------------------------------------------------------------
 
@@ -90,7 +90,7 @@ b) Which is the best Language Model (bi-directional, one-directional, etc.) to u
 Natural language Representations (NLRs) might ignore key features of distributional semantics! A new NLR model is typically evaluated across several tasks, and is considered an improvement if it achieves better accuracy than its predecessors. However, different applications rely on different aspects of word embeddings, and good performance in one application does not necessarily imply equally good performance on another.
 
 #### Which data are you planning to use?
-Europarl Corpus http://www.statmt.org/europarl/ \\ http://www.aclweb.org/anthology/E17-2038
+WMT 2017 Translation Task http://data.statmt.org/wmt17/translation-task/preprocessed/de-en/
 
 #### Which specific steps (e.g. milestones) are you going to take towards solving the problem? What's the schedule?
 * 20.12.2018 - Write part 4 and implement NLRs 

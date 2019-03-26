@@ -18,7 +18,7 @@
 
 Clone this repository in the desired place:
 
-    git clone https://github.com/bricksdont/sockeye-toy-models
+    git clone https://github.com/kinimod23/NMT_Project.git
     cd NMT_Project/NMT_environment/shell_scripts
 
 Set up the NMT environment:

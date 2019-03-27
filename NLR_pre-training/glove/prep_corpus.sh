@@ -33,3 +33,7 @@ python wmt_prep.py $data/corpus.tc.de
 echo "--"
 echo "target corpus is prepared and saved"
 echo ""
+
+mv $glove/glove_training.sh $glove/glove/glove_training.sh
+mv $glove/gloved_corpus.tc.de $glove/glove/gloved_corpus.tc.de
+mv $glove/gloved_corpus.tc.en $glove/glove/gloved_corpus.tc.en

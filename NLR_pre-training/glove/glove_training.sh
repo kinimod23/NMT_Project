@@ -1,7 +1,7 @@
 #!/bin/bash
 
 glove=`dirname "$0"`
-master=$glove/../..
+master=$glove/../../..
 base=$master/NMT_environment
 data=$base/data
 pre_embs=$base/pre-trained_embs
@@ -9,9 +9,15 @@ mkdir -p $pre_embs
 nmt_glove=$pre_embs/glove
 mkdir -p $nmt_glove
 
-CORPUS=gloved_corpus.tc.en
-VOCAB_FILE=vocab.en.txt
-SAVE_FILE=$nmt_glove/vecs.en
+CORPUS=$1
+if [ "$1" == 'gloved_corpus.tc.en' ]; then
+  VOCAB_FILE=vocab.en.txt
+  SAVE_FILE=$nmt_glove/vecs.en
+  elif [ "$1" == 'gloved_corpus.tc.de' ]; then
+    VOCAB_FILE=vocab.de.txt
+    SAVE_FILE=$nmt_glove/vecs.de
+fi
+
 
 ##################################
 
@@ -46,4 +52,15 @@ if [ "$CORPUS" = 'text8' ]; then
        echo "$ python eval/python/evaluate.py"
        python eval/python/evaluate.py
    fi
+fi
+
+rm cooccurence.bin
+rm cooccurrence.shuf.bin
+
+if [ "$1" == 'gloved_corpus.tc.en' ]; then
+	rm gloved_corpus.tc.en
+  rm $nmt_glove/vecs.en.bin
+  elif [ "$1" == 'gloved_corpus.tc.de' ]; then
+    rm gloved_corpus.tc.de
+    rm $nmt_glove/vecs.de.bin
 fi

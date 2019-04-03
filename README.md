@@ -35,15 +35,17 @@ Pre-train glove embeddings:
 
 Download and install glove components:
 
-    git clone http://github.com/stanfordnlp/glove .
-    cd glove && make
+    git init .
+    git remote add -t \* -f origin http://github.com/stanfordnlp/glove
+    git checkout master
+    make
 
 Train glove embeddings with previously generated BPE training data:
 
     # for source
-    bash glove_training.sh /../../NMT_environment/data/train.BPE.en
+    bash glove_training.sh ~/NMT_environment/data/train.BPE.en
     # for target
-    bash glove_training.sh /../../NMT_environment/data/train.BPE.de
+    bash glove_training.sh ~/NMT_environment/data/train.BPE.de
 
 Initialize pre-trained embedding matrix for final NMT training:
 
@@ -71,6 +73,10 @@ Final NMT training - Experiment (with pre-trained Embeddings):
 
 ----------------------------------------------------------------------------------------
 ## What I have done
+
+
+*
+
 * successfully run a NMT toy model using sockeye
 
 * implemented glove, zalando, elmo and paragraph-vector NLRs

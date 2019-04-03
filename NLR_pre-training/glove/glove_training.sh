@@ -10,14 +10,13 @@ nmt_glove=$pre_embs/glove
 mkdir -p $nmt_glove
 
 CORPUS=$1
-if [ "$1" | tail -c 2 == 'en' ]; then
+if [ "${CORPUS: -2}" == 'en' ]; then
   VOCAB_FILE=vocab.en.txt
   SAVE_FILE=$nmt_glove/vecs.en
-  elif [ "$1" | tail -c 2 == 'de' ]; then
+  elif [ "${CORPUS: -2}" == 'de' ]; then
     VOCAB_FILE=vocab.de.txt
     SAVE_FILE=$nmt_glove/vecs.de
 fi
-
 
 ##################################
 
@@ -57,10 +56,10 @@ fi
 rm cooccurence.bin
 rm cooccurrence.shuf.bin
 
-if [ "$1" | tail -c 2 == 'en' ]; then
+if [ "${CORPUS: -2}" == 'en' ]; then
 #	rm gloved_corpus.tc.en
   rm $nmt_glove/vecs.en.bin
-  elif [ "$1" | tail -c 2 == 'de' ]; then
+  elif [ "${CORPUS: -2}" == 'de' ]; then
 #    rm gloved_corpus.tc.de
     rm $nmt_glove/vecs.de.bin
 fi

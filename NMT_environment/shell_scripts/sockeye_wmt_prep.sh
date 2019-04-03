@@ -37,7 +37,7 @@ echo "training set finished"
 
 
 echo "============================================================"
-echo "build BPE vocabulary on whole data set"
+echo "build BPE vocabulary on training data"
 echo "============================================================"
 sleep 3
 subword-nmt learn-joint-bpe-and-vocab --input $data/train.de $data/train.en \

@@ -49,10 +49,14 @@ Initialize pre-trained embedding matrix for final NMT training:
 
     cd NMT_Project/NMT_environment/shell_scripts
     bash sockeye_wmt_create.embs.sh
-    
-Final NMT training:
 
-    bash sockeye_wmt_train.sh
+Final NMT training - Baseline (with insulated Embeddings):
+
+    bash sockeye_wmt_train_basel.sh
+
+Final NMT training - Experiment (with pre-trained Embeddings):
+
+    bash sockeye_wmt_train_prembs.sh
 
 ----------------------------------------------------------------------------------------------
 

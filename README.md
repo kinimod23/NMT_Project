@@ -102,11 +102,4 @@ Natural language Representations (NLRs) might ignore key features of distributio
 #### Which data are you planning to use?
 WMT 2017 Translation Task http://data.statmt.org/wmt17/translation-task/preprocessed/de-en/
 
-#### Which specific steps (e.g. milestones) are you going to take towards solving the problem? What's the schedule?
-* 20.12.2018 - Write part 4 and implement NLRs 
-* 31.12.2018 - Building an NMT network
-* 06.01.2019 - Input NLRs into NMT network
-* 07.01 till 03.02.2019 - Problem fixing and paper writing 
-* 29.03.2019 - Submission
-
 ------------------------------------------------------------------------------------------

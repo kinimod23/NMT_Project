@@ -77,5 +77,6 @@ echo "BPE vocabulary successfully applied on test set"
 echo ""
 
 
-
+#rm $data/corpus.tc.en
+#rm $data/corpus.tc.de
 

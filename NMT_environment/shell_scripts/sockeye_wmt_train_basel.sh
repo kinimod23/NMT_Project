@@ -8,7 +8,7 @@ pre_embs=$base/pre-trained_embs
 mkdir -p $base/models
 
 num_threads=5
-model_name=model_wmt17_glove
+model_name=model_wmt17_basel
 
 
 ##################################
@@ -43,15 +43,11 @@ python -m sockeye.prepare_data \
 #rm $data/train.BPE.de
 #rm $data/train.BPE.en
 
-
-# USE GPU!!!
-
-
 echo "============================================================"
 echo "START TRAINING"
 echo "============================================================"
 sleep 8
-nohup python -m sockeye.train \
+nohup OMP_NUM_THREADS=$num_threads python -m sockeye.train \
                         -d $data/train_data \
                         -vs $data/val.BPE.en \
                         -vt $data/val.BPE.de \

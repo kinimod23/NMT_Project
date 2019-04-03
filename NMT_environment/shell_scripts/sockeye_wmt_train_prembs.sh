@@ -25,7 +25,7 @@ else
         exit 
 fi
 sleep 5
-
+:'
 echo "============================================================"
 echo "split source/target sentences into subsplits and serialize in matrix format"
 echo "============================================================"
@@ -39,19 +39,15 @@ python -m sockeye.prepare_data \
                         -o $data/train_data \
                         --source-vocab $data/vocab.src.0.json \
                         --target-vocab $data/vocab.tgt.0.json
-
+'
 #rm $data/train.BPE.de
 #rm $data/train.BPE.en
-
-
-# USE GPU!!!
-
 
 echo "============================================================"
 echo "START TRAINING"
 echo "============================================================"
 sleep 8
-nohup python -m sockeye.train \
+nohup OMP_NUM_THREADS=$num_threads python -m sockeye.train \
                         -d $data/train_data \
                         -vs $data/val.BPE.en \
                         -vt $data/val.BPE.de \

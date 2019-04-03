@@ -11,10 +11,10 @@ mkdir -p $nmt_glove
 
 CORPUS=$1
 if [ "${CORPUS: -2}" == 'en' ]; then
-  VOCAB_FILE=vocab.en.txt
+  VOCAB_FILE=$nmt_glove/vocab.en.txt
   SAVE_FILE=$nmt_glove/vecs.en
   elif [ "${CORPUS: -2}" == 'de' ]; then
-    VOCAB_FILE=vocab.de.txt
+    VOCAB_FILE=$nmt_glove/vocab.de.txt
     SAVE_FILE=$nmt_glove/vecs.de
 fi
 

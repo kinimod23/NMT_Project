@@ -19,7 +19,7 @@
 Clone this repository in the desired place:
 
     git clone https://github.com/kinimod23/NMT_Project.git
-    cd NMT_Project/NMT_environment/shell_scripts
+    cd ~/NMT_Project/NMT_environment/shell_scripts
 
 Set up the NMT environment:
 
@@ -31,7 +31,7 @@ Preprocess the data used:
 
 Pre-train glove embeddings:
 
-    cd NMT_Project/NLR_pre-training/glove
+    cd ~/NMT_Project/NLR_pre-training/glove
 
 Download and install glove components:
 
@@ -43,13 +43,13 @@ Download and install glove components:
 Train glove embeddings with previously generated BPE training data:
 
     # for source
-    bash glove_training.sh ~/NMT_environment/data/train.BPE.en
+    bash glove_training.sh ~/NMT_Project/NMT_environment/data/train.BPE.en
     # for target
-    bash glove_training.sh ~/NMT_environment/data/train.BPE.de
+    bash glove_training.sh ~/NMT_Project/NMT_environment/data/train.BPE.de
 
 Initialize pre-trained embedding matrix for final NMT training:
 
-    cd NMT_Project/NMT_environment/shell_scripts
+    cd ~/NMT_Project/NMT_environment/shell_scripts
     bash sockeye_wmt_create.embs.sh
 
 Final NMT training - Baseline (with insulated Embeddings):

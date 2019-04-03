@@ -63,19 +63,15 @@ Final NMT training - Experiment (with pre-trained Embeddings):
 ----------------------------------------------------------------------------------------------
 
 ## ToDo
-* glove embeddings are not yet trained on BPE-Units
-
 * evaluation is missing
-
-* train a sockeye NMT model with pre-trained glove embeddings on the wmt'17 corpus
 
 * overcome challenges with other Embeddings to be able to train them on sockeye too
 
 ----------------------------------------------------------------------------------------
 ## What I have done
+* sockeye NMT model trained with glove embeddings on the wmt'17 corpus
 
-
-*
+* glove embeddings trained on BPE-Units
 
 * successfully run a NMT toy model using sockeye
 

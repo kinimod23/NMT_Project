@@ -35,21 +35,15 @@ Pre-train glove embeddings:
 
 Download and install glove components:
 
-    git clone http://github.com/stanfordnlp/glove
+    git clone http://github.com/stanfordnlp/glove .
     cd glove && make
 
-Prepare corpus for glove training process:
+Train glove embeddings with previously generated BPE training data:
 
-    cd ..
-    bash prep_corpus.sh
-
-Train glove embeddings:
-
-    cd glove
     # for source
-    bash glove_training.sh gloved_corpus.tc.en
+    bash glove_training.sh /../../NMT_environment/data/train.BPE.en
     # for target
-    bash glove_training.sh gloved_corpus.tc.de
+    bash glove_training.sh /../../NMT_environment/data/train.BPE.de
 
 Initialize pre-trained embedding matrix for final NMT training:
 

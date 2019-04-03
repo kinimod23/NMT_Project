@@ -23,16 +23,16 @@ echo "============================================================"
 sleep 3
 
 
-head -n 25000 $data/corpus.tc.de > $data/test.de
-head -n 25000 $data/corpus.tc.en > $data/test.en
+head -n 2000 $data/corpus.tc.de > $data/test.de
+head -n 2000 $data/corpus.tc.en > $data/test.en
 echo "test set finished"
 
-head -n 50000 $data/corpus.tc.de | tail -n 25000 > $data/val.de
-head -n 50000 $data/corpus.tc.en | tail -n 25000 > $data/val.en
+head -n 4000 $data/corpus.tc.de | tail -n 25000 > $data/val.de
+head -n 4000 $data/corpus.tc.en | tail -n 25000 > $data/val.en
 echo "validation set finished"
 
-tail -n 5800000 $data/corpus.tc.de > $data/train.de
-tail -n 5800000 $data/corpus.tc.en > $data/train.en
+tail -n 5846458 $data/corpus.tc.de > $data/train.de
+tail -n 5846458 $data/corpus.tc.en > $data/train.en
 echo "training set finished"
 
 
@@ -40,7 +40,7 @@ echo "============================================================"
 echo "build BPE vocabulary on whole data set"
 echo "============================================================"
 sleep 3
-subword-nmt learn-joint-bpe-and-vocab --input $data/corpus.tc.de $data/corpus.tc.en \
+subword-nmt learn-joint-bpe-and-vocab --input $data/train.de $data/train.en \
                                     -s 30000 \
                                     -o $data/bpe.codes \
                                     --write-vocabulary $data/bpe.vocab.de $data/bpe.vocab.en

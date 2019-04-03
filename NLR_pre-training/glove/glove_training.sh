@@ -1,7 +1,7 @@
 #!/bin/bash
 
 glove=`dirname "$0"`
-master=$glove/../../..
+master=$glove/../..
 base=$master/NMT_environment
 data=$base/data
 pre_embs=$base/pre-trained_embs
@@ -10,10 +10,10 @@ nmt_glove=$pre_embs/glove
 mkdir -p $nmt_glove
 
 CORPUS=$1
-if [ "$1" == 'gloved_corpus.tc.en' ]; then
+if [ "$1" | tail -c 2 == 'en' ]; then
   VOCAB_FILE=vocab.en.txt
   SAVE_FILE=$nmt_glove/vecs.en
-  elif [ "$1" == 'gloved_corpus.tc.de' ]; then
+  elif [ "$1" | tail -c 2 == 'de' ]; then
     VOCAB_FILE=vocab.de.txt
     SAVE_FILE=$nmt_glove/vecs.de
 fi
@@ -57,10 +57,10 @@ fi
 rm cooccurence.bin
 rm cooccurrence.shuf.bin
 
-if [ "$1" == 'gloved_corpus.tc.en' ]; then
-	rm gloved_corpus.tc.en
+if [ "$1" | tail -c 2 == 'en' ]; then
+#	rm gloved_corpus.tc.en
   rm $nmt_glove/vecs.en.bin
-  elif [ "$1" == 'gloved_corpus.tc.de' ]; then
-    rm gloved_corpus.tc.de
+  elif [ "$1" | tail -c 2 == 'de' ]; then
+#    rm gloved_corpus.tc.de
     rm $nmt_glove/vecs.de.bin
 fi

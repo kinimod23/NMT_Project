@@ -71,7 +71,7 @@ Using test data for Evaluation
     # Evaluation of glove model
     bash sockeye_wmt_eval.sh model_wmt17_glove
 \
-Doing a recheck if the initially used vectors of the sockeye-nmt-system are actually conform with the pre-trained vectors (and not Zero as being the usual "sockeye way")<br/>
+Doing a recheck if the initially used vectors of the sockeye-nmt-system are actually conform with the pre-trained vectors (and not Zero as being the usual "sockeye way")<br/><br/>
 
 
 [1] extract initial sockeye-nmt-system's embedding vectors

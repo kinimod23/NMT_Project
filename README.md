@@ -73,6 +73,7 @@ Using test data for Evaluation
 \
 Doing a recheck if the initially used vectors of the sockeye-nmt-system are actually conform with the pre-trained vectors (and not Zero as being the usual "sockeye way")<br/>
 
+
 [1] extract initial sockeye-nmt-system's embedding vectors
 
     bash sockeye_wmt_prembs.recheck.sh && exit

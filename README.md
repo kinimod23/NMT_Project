@@ -97,7 +97,7 @@ Doing a recheck if the initially used vectors of the sockeye-nmt-system are actu
 * pre-train embeddings on more/different data
 
 * evaluation of how much embeddings change from params.00000 to params.best
-    * results when pre-trained embeddings are fixed from start to end
+    * compare translation quality when pre-trained embeddings are fixed from start to end
 
 * interpreting BLEU results: train several systems to calculate mean and variance
 

@@ -14,7 +14,7 @@
 ![Alt text](../master/NLR_pre-training//nlr_analysis.png?raw=true "NLRs to analyse")
 
 ----------------------------------------------------------------------------------------------
-## Steps
+## Training Steps
 
 Clone this repository in the desired place:
 
@@ -60,15 +60,49 @@ Final NMT training - Experiment (with pre-trained Embeddings):
 
     bash sockeye_wmt_train_prembs.sh
 
+
+## Evaluation Steps
+
+Using test data for evaluation
+
+    cd ~/NMT_Project/NMT_environment/shell_scripts
+    bash sockeye_wmt_eval.sh model_wmt17_basel
+
+Doing a recheck if the initially used vectors of the sockeye-nmt-system are actually conform with the pre-trained vectors (and not Zero as being the usual "sockeye way")
+
+[1] extract initial sockeye-nmt-system's embedding vectors
+
+    bash sockeye_wmt_prembs.recheck.sh && exit
+
+[2] on your local machine
+
+    mkdir ~/Desktop/recheck_embs
+    cd ~/Desktop/recheck_embs
+    wget https://raw.githubusercontent.com/kinimod23/NMT_Project/master/NMT_environment/tools/npz_transf.py
+    wget https://raw.githubusercontent.com/kinimod23/NMT_Project/master/NMT_environment/tools/recheck_embs.sh
+
+[3] download and transform vectors for rechecking
+
+    bash recheck_embs.sh
+
+[4] manually compare pre-trained vs. initially used vectors
+
 ----------------------------------------------------------------------------------------------
 
 ## ToDo
-* evaluation is missing
+* pre-train embeddings on more/different data
 
-* overcome challenges with other Embeddings to be able to train them on sockeye too
+* evaluation of how much embeddings change from params.00000 to params.best
+    * results when pre-trained embeddings are fixed from start to end
+
+* interpreting BLEU results: train several systems to calculate mean and variance
 
 ----------------------------------------------------------------------------------------
 ## What I have done
+* evaluation of pre-trained vs. initial sockeye-nmt-system's embedding vectors
+
+* evaluation via BLEU score
+
 * sockeye NMT model trained with glove embeddings on the wmt'17 corpus
 
 * glove embeddings trained on BPE-Units

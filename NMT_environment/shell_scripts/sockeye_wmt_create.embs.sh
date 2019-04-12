@@ -26,14 +26,14 @@ echo "extract vocabulary from training data"
 echo "============================================================"
 sleep 2
 python -m sockeye.vocab \
-          -i $data/train.en \
+          -i $data/train.BPE.en \
           -o $data/vocab.src.0.json
 echo "--"
 echo "source vocabulary extracted"
 echo ""
 sleep 3
 python3 -m sockeye.vocab \
-          -i $data/train.de \
+          -i $data/train.BPE.de \
           -o $data/vocab.tgt.0.json
 echo "--"
 echo "target vocabulary extracted"

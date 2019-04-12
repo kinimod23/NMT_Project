@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
 
-# Converts fasttext embeddings to the npy format
+# Converts embeddings to the npy format
 # Writes out modified embedding file and a vocab in JSON format
-# Fasttext embeddings do not contain a meta first line
+# embeddings do not contain a meta first line
 
 import sys
 import json

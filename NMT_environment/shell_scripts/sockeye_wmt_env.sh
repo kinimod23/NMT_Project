@@ -28,7 +28,9 @@ echo "============================================================"
 echo "install sockeye and the BPE library"
 echo "============================================================"
 sleep 2
-pip install sockeye==1.18.57 matplotlib mxboard
+wget https://raw.githubusercontent.com/awslabs/sockeye/master/requirements/requirements.gpu-cu80.txt
+pip install sockeye --no-deps -r requirements.gpu-cu80.txt
+rm requirements.gpu-cu80.txt
 pip install subword_nmt
 echo "============================================================"
 echo "install evaluation tool to value results after training"

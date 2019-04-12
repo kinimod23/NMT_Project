@@ -78,7 +78,7 @@ Doing a recheck if the initially used vectors of the sockeye-nmt-system are actu
 
     bash sockeye_wmt_prembs.recheck.sh && exit
 
-[2] on your local machine
+[2] on local machine
 
     mkdir ~/Desktop/recheck_embs
     cd ~/Desktop/recheck_embs

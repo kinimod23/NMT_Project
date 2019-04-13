@@ -82,7 +82,7 @@ Doing a recheck if the initially used vectors of the sockeye-nmt-system are actu
 
     mkdir ~/Desktop/recheck_embs
     cd ~/Desktop/recheck_embs
-    wget https://raw.githubusercontent.com/kinimod23/NMT_Project/master/NMT_environment/tools/npz_transf.py
+    wget https://raw.githubusercontent.com/kinimod23/NMT_Project/master/NMT_environment/tools/np_transf.py
     wget https://raw.githubusercontent.com/kinimod23/NMT_Project/master/NMT_environment/tools/recheck_embs.sh
 
 [3] download and transform vectors for rechecking

@@ -94,7 +94,7 @@ Doing a recheck if the initially used vectors of the sockeye-nmt-system are actu
 [4] manually compare pre-trained vs. initially used vectors
 
 
-## Additional Steps (caution: overwrites BPE training data and glove vectors from previous steps)
+## Additional Steps
 ### Use more data to pre-train glove embeddings
 
     cd ~/NMT_Project/NMT_environment/shell_scripts

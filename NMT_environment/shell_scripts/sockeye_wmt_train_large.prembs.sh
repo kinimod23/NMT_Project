@@ -4,11 +4,10 @@ shell_scripts=`dirname "$0"`
 base=$shell_scripts/..
 data=$base/data
 pre_embs=$base/pre-trained_embs
-
-mkdir -p $base/models
+pre_data=$data/pre-train_data
 
 num_threads=5
-model_name=model_wmt17_glove
+model_name=$1
 
 
 ##################################
@@ -25,7 +24,7 @@ else
         exit 
 fi
 sleep 5
-:'
+
 echo "============================================================"
 echo "split source/target sentences into subsplits and serialize in matrix format"
 echo "============================================================"
@@ -37,9 +36,9 @@ python -m sockeye.prepare_data \
                         -s $data/train.BPE.en \
                         -t $data/train.BPE.de \
                         -o $data/train_data \
-                        --source-vocab $data/vocab.src.0.json \
-                        --target-vocab $data/vocab.tgt.0.json
-'
+                        --source-vocab $pre_data/large.vocab.src.0.json \
+                        --target-vocab $pre_data/large.vocab.tgt.0.json
+
 #rm $data/train.BPE.de
 #rm $data/train.BPE.en
 
@@ -47,7 +46,7 @@ echo "============================================================"
 echo "START TRAINING"
 echo "============================================================"
 sleep 8
-nohup OMP_NUM_THREADS=$num_threads python -m sockeye.train \
+nohup python -m sockeye.train \
                         -d $data/train_data \
                         -vs $data/val.BPE.en \
                         -vt $data/val.BPE.de \
@@ -65,6 +64,6 @@ nohup OMP_NUM_THREADS=$num_threads python -m sockeye.train \
                         -o $base/models/$model_name \
                         --max-num-checkpoint-not-improved 8 \
                         --device-ids 6 \
-                        --params $pre_embs/params.init_glove \
+                        --params $pre_embs/params.init_large.glove \
                         --allow-missing-params \
                         --lock-dir /var/tmp

@@ -42,6 +42,11 @@ echo "all necessary packages are installed into the virtual env"
 echo ""
 sleep 5
 echo "============================================================"
+echo "install Moses scripts for pre-/postprocessing"
+echo "============================================================"
+sleep 3
+git clone https://github.com/bricksdont/moses-scripts $tools/moses-scripts
+echo "============================================================"
 echo "download corpus and unzip it"
 echo "============================================================"
 sleep 2

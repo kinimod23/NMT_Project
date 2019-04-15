@@ -19,6 +19,14 @@ emb_matrix = []
 vocab = []
 
 with codecs.open(vec_filename, "r", encoding='utf-8') as vec_file:
+
+  # add special tokens to with id's 0, 1, 2
+  first_line = vec_file.readline().strip().split()
+  for special_token in ["<pad>", "<unk>", "<s>", "</s>"]:
+    vocab.append(special_token)
+    emb_matrix.append(np.asarray(first_line[1:], dtype=np.float32).reshape(-1, 1))
+
+  vec_file.seek(0)
   for line in vec_file:
     line = line.strip().split()
     if not len(line) == 513: 

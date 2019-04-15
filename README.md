@@ -7,7 +7,9 @@
 * Evaluation methods http://www.aclweb.org/anthology/D15-1036
 * Intrinsic Evaluation http://www.aclweb.org/anthology/W16-2507
 * preprocessing steps and hyperparameter settings http://www.aclweb.org/anthology/Q15-1016
-* WMT 2017 Translation Task http://data.statmt.org/wmt17/translation-task/preprocessed/de-en/
+* WMT 2017 Translation Task http://www.statmt.org/wmt17/
+* Data used: http://data.statmt.org/wmt17/translation-task/preprocessed/de-en/
+* Additional Data used: http://www.statmt.org/wmt14/training-monolingual-news-crawl/
 
 ----------------------------------------------------------------------------------------------
 
@@ -43,14 +45,14 @@ Download and install glove components:
 Train glove embeddings with previously generated BPE training data:
 
     # for source
-    bash glove_training.sh ~/NMT_Project/NMT_environment/data/train.BPE.en
+    bash glove_small.training.sh ~/NMT_Project/NMT_environment/data/train.BPE.en
     # for target
-    bash glove_training.sh ~/NMT_Project/NMT_environment/data/train.BPE.de
+    bash glove_small.training.sh ~/NMT_Project/NMT_environment/data/train.BPE.de
 
 Initialize pre-trained embedding matrix for final NMT training:
 
     cd ~/NMT_Project/NMT_environment/shell_scripts
-    bash sockeye_wmt_create.embs.sh
+    bash sockeye_wmt_create.small.embs.sh
 
 Final NMT training - Baseline (with insulated Embeddings):
 
@@ -58,7 +60,7 @@ Final NMT training - Baseline (with insulated Embeddings):
 
 Final NMT training - Experiment (with pre-trained Embeddings):
 
-    bash sockeye_wmt_train_prembs.sh
+    bash sockeye_wmt_train_small.prembs.sh model_wmt17_small.glove
 
 
 ## Evaluation Steps
@@ -69,7 +71,7 @@ Using test data for Evaluation
     # Evaluation of baseline model
     bash sockeye_wmt_eval.sh model_wmt17_basel
     # Evaluation of glove model
-    bash sockeye_wmt_eval.sh model_wmt17_glove
+    bash sockeye_wmt_eval.sh model_wmt17_small.glove
 \
 \
 Doing a recheck if the initially used vectors of the sockeye-nmt-system are actually conform with the pre-trained vectors (and not Zero as being the usual "sockeye way")
@@ -90,6 +92,30 @@ Doing a recheck if the initially used vectors of the sockeye-nmt-system are actu
     bash recheck_embs.sh
 
 [4] manually compare pre-trained vs. initially used vectors
+
+
+## Additional Steps (caution: overwrites BPE training data and glove vectors from previous steps)
+### Use more data to pre-train glove embeddings
+
+    cd ~/NMT_Project/NMT_environment/shell_scripts
+    bash sockeye_wmt_prep_add.data
+
+Train glove embeddings with previously generated additional BPE training data:
+
+    cd ~/NMT_Project/NLR_pre-training/glove
+    # for source
+    bash glove_large.training.sh ~/NMT_Project/NMT_environment/data/pre-train_data/pre-train.BPE.en
+    # for target
+    bash glove_large.training.sh ~/NMT_Project/NMT_environment/data/pre-train_data/pre-train.BPE.de
+
+Initialize pre-trained embedding matrix for final NMT training:
+
+    cd ~/NMT_Project/NMT_environment/shell_scripts
+    bash sockeye_wmt_create.large.embs.sh
+
+Final NMT training - Experiment (with pre-trained Embeddings):
+
+    bash sockeye_wmt_train_large.prembs.sh model_wmt17_large.glove
 
 ----------------------------------------------------------------------------------------------
 

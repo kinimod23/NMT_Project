@@ -7,6 +7,8 @@ translations=$base/translations
 mkdir -p $translations
 tools=$base/tools
 
+MOSES=$base/tools/moses-scripts/scripts
+
 model_name=$1
 num_threads=5
 
@@ -25,12 +27,6 @@ else
 	exit 
 fi
 sleep 5
-echo "============================================================"
-echo "install Moses scripts for postprocessing"
-echo "============================================================"
-sleep 3
-git clone https://github.com/bricksdont/moses-scripts $tools/moses-scripts
-MOSES=$base/tools/moses-scripts/scripts
 echo "============================================================"
 echo "translating from source to target on test data"
 echo "============================================================"

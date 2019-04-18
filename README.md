@@ -117,6 +117,21 @@ Final NMT training - Experiment (with pre-trained Embeddings):
 
     bash sockeye_wmt_train_large.prembs.sh model_wmt17_large.glove
 
+
+## Significance testing
+
+    cd ~/NMT_Project/Signifikanztests
+    # activate python environment, download test tool & copy required data
+    bash signi_env.sh
+
+Execute significance test with:
+arg1 = *give a name for the model*
+arg2 = gold standard
+arg3 = translated test sentences of System 1
+arg4 = translated test sentences of System 2
+
+    bash signi_test.sh basel.glove test.gold.de test.transl.basel.de test.transl.small.glove.de
+
 ----------------------------------------------------------------------------------------------
 
 ## ToDo

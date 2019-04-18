@@ -125,12 +125,12 @@ Final NMT training - Experiment (with pre-trained Embeddings):
     bash signi_env.sh
 
 Execute significance test with:\
-<sub>
+<sup>
 arg1 = *give a name for the model*\
 arg2 = gold standard\
 arg3 = translated test sentences of System 1\
 arg4 = translated test sentences of System 2
-</sub>
+</sup>
 
     bash signi_test.sh basel.glove test.gold.de test.transl.basel.de test.transl.small.glove.de
 

@@ -27,7 +27,8 @@ echo "============================================================"
 sleep 3
 cp ~/NMT_Project/NMT_environment/data/test.de $signi/test.gold.de
 cp ~/NMT_Project/NMT_environment/translations/test.model_wmt17_basel.de $signi/test.transl.basel.de
-cp ~/NMT_Project/NMT_environment/translations/test.model_wmt17_glove.de $signi/test.transl.small.glove.de
+cp ~/NMT_Project/NMT_environment/translations/test.model_wmt17_small.glove.de $signi/test.transl.small.glove.de
+cp ~/NMT_Project/NMT_environment/translations/test.model_wmt17_large.glove.de $signi/test.transl.large.glove.de
 echo "--"
 echo "the environment for significance testing is set up"
 echo ""

@@ -2,8 +2,10 @@
 
 shell_scripts=`dirname "$0"`
 base=$shell_scripts/..
-models=$base/models/model_wmt17_glove
 pre_embs=$base/pre-trained_embs/glove
+
+model_name=$1
+model=$base/models/"${model_name}"
 
 echo "============================================================"
 echo "avtivate virtual environment"
@@ -21,5 +23,11 @@ echo "============================================================"
 echo "extract initial sockeye-nmt-system's embedding vectors"
 echo "============================================================"
 sleep 3
-python -m sockeye.extract_parameters --names "source_embed_weight" --output $pre_embs/src_init.npz $models/params.00000
-python -m sockeye.extract_parameters --names "target_embed_weight" --output $pre_embs/trg_init.npz $models/params.00000
+
+if [ "${model_name}" == 'model_wmt17_small.glove' ]; then
+python -m sockeye.extract_parameters --names "source_embed_weight" --output $pre_embs/small.src_init.npz $model/params.00000
+python -m sockeye.extract_parameters --names "target_embed_weight" --output $pre_embs/small.trg_init.npz $model/params.00000
+  elif [ "${model_name}" == 'model_wmt17_large.glove' ]; then
+  	python -m sockeye.extract_parameters --names "source_embed_weight" --output $pre_embs/large.src_init.npz $model/params.00000
+  	python -m sockeye.extract_parameters --names "target_embed_weight" --output $pre_embs/large.trg_init.npz $model/params.00000
+fi

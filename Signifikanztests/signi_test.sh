@@ -24,8 +24,8 @@ echo "============================================================"
 echo "compute descriptive statistics and save to txt file"
 echo "============================================================"
 sleep 3
-python paired-bootstrap.py 	--num_samples 100 --eval_type \
-							bleu_detok $signi/$GOLD $signi/$SYS1 $signi/$SYS2 \
+python paired-bootstrap.py 	--num_samples 100 --eval_type bleu_detok \
+							$signi/$GOLD $signi/$SYS1 $signi/$SYS2 \
 							> $signi/d.stats_$model_name.txt
 echo "--"
 echo "successfully saved descriptive statistics to d.stats_"${model_name}".txt"

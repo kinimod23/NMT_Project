@@ -13,9 +13,6 @@
 
 ----------------------------------------------------------------------------------------------
 
-![Alt text](../master/NLR_pre-training//nlr_analysis.png?raw=true "NLRs to analyse")
-
-----------------------------------------------------------------------------------------------
 ## Training Steps
 
 Clone this repository in the desired place:
@@ -70,15 +67,21 @@ Using test data for Evaluation
     cd ~/NMT_Project/NMT_environment/shell_scripts
     # Evaluation of baseline model
     bash sockeye_wmt_eval.sh model_wmt17_basel
-    # Evaluation of glove model
+    # Evaluation of glove model pre-trained on small data
     bash sockeye_wmt_eval.sh model_wmt17_small.glove
+    # Evaluation of glove model pre-trained on large data
+    bash sockeye_wmt_eval.sh model_wmt17_large.glove
+
 \
 \
 Doing a recheck if the initially used vectors of the sockeye-nmt-system are actually conform with the pre-trained vectors (and not Zero as being the usual "sockeye way")
 
 [1] extract initial sockeye-nmt-system's embedding vectors
 
-    bash sockeye_wmt_prembs.recheck.sh && exit
+    bash sockeye_wmt_prembs.recheck.sh \
+        {model_wmt17_small.glove / model_wmt17_large.glove} \
+        && exit
+        
 
 [2] on local machine
 
@@ -89,7 +92,7 @@ Doing a recheck if the initially used vectors of the sockeye-nmt-system are actu
 
 [3] download and transform vectors for rechecking
 
-    bash recheck_embs.sh
+    bash recheck_embs.sh {model_wmt17_small.glove / model_wmt17_large.glove}
 
 [4] manually compare pre-trained vs. initially used vectors
 
@@ -132,17 +135,19 @@ Execute significance test with:\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;arg4 = translated test sentences of System 2
 </sub>
 
-    bash signi_test.sh basel.glove test.gold.de test.transl.basel.de test.transl.small.glove.de
+    bash signi_test.sh basel.sglove test.gold.de test.transl.basel.de test.transl.small.glove.de
+
+    bash signi_test.sh basel.lglove test.gold.de test.transl.basel.de test.transl.large.glove.de
 
 ----------------------------------------------------------------------------------------------
 
 ## ToDo
-* pre-train embeddings on more/different data
-
 * evaluation of how much embeddings change from params.00000 to params.best
 
 ----------------------------------------------------------------------------------------
 ## What I have done
+* pre-trained embeddings on additional/different data
+
 * significance testing
 
 * evaluation of pre-trained vs. initial sockeye-nmt-system's embedding vectors

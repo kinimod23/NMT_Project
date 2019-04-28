@@ -11,11 +11,11 @@ mkdir -p $nmt_glove
 
 CORPUS=$1
 if [ "${CORPUS: -2}" == 'en' ]; then
-  VOCAB_FILE=$nmt_glove/vocab.en.txt
-  SAVE_FILE=$nmt_glove/vecs.en
+  VOCAB_FILE=$nmt_glove/small.vocab.en.txt
+  SAVE_FILE=$nmt_glove/small.vecs.en
   elif [ "${CORPUS: -2}" == 'de' ]; then
-    VOCAB_FILE=$nmt_glove/vocab.de.txt
-    SAVE_FILE=$nmt_glove/vecs.de
+    VOCAB_FILE=$nmt_glove/small.vocab.de.txt
+    SAVE_FILE=$nmt_glove/small.vecs.de
 fi
 
 ##################################
@@ -31,7 +31,7 @@ MAX_ITER=15
 WINDOW_SIZE=15
 BINARY=2
 NUM_THREADS=8
-X_MAX=10
+X_MAX=100
 
 echo
 echo "$ $BUILDDIR/vocab_count -min-count $VOCAB_MIN_COUNT -verbose $VERBOSE < $CORPUS > $VOCAB_FILE"
@@ -53,13 +53,11 @@ if [ "$CORPUS" = 'text8' ]; then
    fi
 fi
 
-rm cooccurence.bin
+rm cooccurrence.bin
 rm cooccurrence.shuf.bin
 
 if [ "${CORPUS: -2}" == 'en' ]; then
-#	rm gloved_corpus.tc.en
-  rm $nmt_glove/vecs.en.bin
+  rm $nmt_glove/small.vecs.en.bin
   elif [ "${CORPUS: -2}" == 'de' ]; then
-#    rm gloved_corpus.tc.de
-    rm $nmt_glove/vecs.de.bin
+    rm $nmt_glove/small.vecs.de.bin
 fi

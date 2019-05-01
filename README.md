@@ -145,7 +145,6 @@ Doing another recheck of how much embeddings change from params.00000 to params.
     # the output is an image file in the form of a histogram showing the frequency distribution on cosine distances between 0-1
 
 \
- 
 ## Significance testing
 
     cd ~/NMT_Project/Signifikanztests

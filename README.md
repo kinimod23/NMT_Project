@@ -98,24 +98,51 @@ Doing a recheck if the initially used vectors of the sockeye-nmt-system are actu
 
 [1] extract initial sockeye-nmt-system's embedding vectors
 
-    bash sockeye_wmt_prembs.recheck.sh \
-        {model_wmt17_small.glove / model_wmt17_large.glove} \
-        && exit
-        
+    # for small
+    bash sockeye_wmt_prembs.recheck.sh model_wmt17_small.glove && exit
+    # for large
+    bash sockeye_wmt_prembs.recheck.shmodel_wmt17_large.glove} && exit
 
 [2] on local machine
 
     mkdir ~/Desktop/recheck_embs
     cd ~/Desktop/recheck_embs
-    wget https://raw.githubusercontent.com/kinimod23/NMT_Project/master/NMT_environment/tools/np_transf.py
     wget https://raw.githubusercontent.com/kinimod23/NMT_Project/master/NMT_environment/tools/recheck_embs.sh
+    wget https://raw.githubusercontent.com/kinimod23/NMT_Project/master/NMT_environment/tools/np_transf.py
+    wget https://raw.githubusercontent.com/kinimod23/NMT_Project/master/NMT_environment/tools/recheck_initvecs.py
+    wget https://raw.githubusercontent.com/kinimod23/NMT_Project/master/NMT_environment/tools/recheck_cosines.py
 
 [3] download and transform vectors for rechecking
 
-    bash recheck_embs.sh {model_wmt17_small.glove / model_wmt17_large.glove}
+    # for small
+    bash recheck_embs.sh model_wmt17_small.glove
+    # for large
+    bash recheck_embs.sh model_wmt17_large.glove
 
-[4] manually compare pre-trained vs. initially used vectors
 
+[4] use script to compare pre-trained vs. initially used vectors
+
+    # for small
+    python recheck_initvecs.py small.src_init.txt small.glove.en.txt
+    python recheck_initvecs.py small.trg_init.txt small.glove.de.txt
+    # for large
+    python recheck_initvecs.py large.src_init.txt large.glove.en.txt
+    python recheck_initvecs.py large.trg_init.txt large.glove.de.txt
+
+    # the output is a print statement telling if all glove embeddings are found in sockeye's embedding layer and if not how many
+
+\
+\
+Doing another recheck of how much embeddings change from params.00000 to params.best (given from the sockeye's models)
+
+    # for small
+    python recheck_cosines.py small.src_init.txt best.small.src_init.txt 
+    python recheck_cosines.py small.trg_init.txt best.small.trg_init.txt
+    # for large
+    python recheck_cosines.py large.src_init.txt best.large.src_init.txt
+    python recheck_cosines.py large.trg_init.txt best.large.trg_init.txt
+
+    # the output is an image file in the form of a histogram showing the frequency distribution on cosine distances between 0-1
 
 ## Significance testing
 
@@ -138,15 +165,17 @@ Execute significance test with:\
 ----------------------------------------------------------------------------------------------
 
 ## ToDo
-* evaluation of how much embeddings change from params.00000 to params.best
+* finish, smooth and polish seminar paper
 
 ----------------------------------------------------------------------------------------
 ## What I have done
+* evaluated how much embeddings change from params.00000 to params.best using a histogram on cosine distances
+
 * pre-trained embeddings on additional/different data
 
 * significance testing
 
-* evaluation of pre-trained vs. initial sockeye-nmt-system's embedding vectors
+* evaluation of pre-trained vs. initial sockeye-nmt-system's embedding vectors using a script calculating intersections
 
 * evaluation via BLEU score
 

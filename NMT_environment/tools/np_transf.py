@@ -18,8 +18,6 @@ if np_file.rsplit('/', 1)[-1][-4:] == ".npz":
 elif np_file.rsplit('/', 1)[-1][-4:] == ".npy":
 	arr = np.load(np_file)
 
-a = arr[:1000]
-
 with open(np_file.rsplit('/', 1)[-1][:-4] + ".txt", "w", encoding="utf-8") as file:
-    for item in list(a):
+    for item in list(arr):
         file.write("%s\n" % item)

@@ -27,7 +27,14 @@ sleep 3
 if [ "${model_name}" == 'model_wmt17_small.glove' ]; then
 python -m sockeye.extract_parameters --names "source_embed_weight" --output $pre_embs/small.src_init.npz $model/params.00000
 python -m sockeye.extract_parameters --names "target_embed_weight" --output $pre_embs/small.trg_init.npz $model/params.00000
+python -m sockeye.extract_parameters --names "source_embed_weight" --output $pre_embs/best.small.src_init.npz $model/params.best
+python -m sockeye.extract_parameters --names "target_embed_weight" --output $pre_embs/best.small.trg_init.npz $model/params.best
   elif [ "${model_name}" == 'model_wmt17_large.glove' ]; then
   	python -m sockeye.extract_parameters --names "source_embed_weight" --output $pre_embs/large.src_init.npz $model/params.00000
   	python -m sockeye.extract_parameters --names "target_embed_weight" --output $pre_embs/large.trg_init.npz $model/params.00000
+  	python -m sockeye.extract_parameters --names "source_embed_weight" --output $pre_embs/best.large.src_init.npz $model/params.best
+  	python -m sockeye.extract_parameters --names "target_embed_weight" --output $pre_embs/best.large.trg_init.npz $model/params.best
 fi
+
+
+

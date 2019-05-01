@@ -133,7 +133,7 @@ Doing a recheck if the initially used vectors of the sockeye-nmt-system are actu
 
 \
 \
-Doing another recheck of how much embeddings change from params.00000 to params.best (given from the sockeye's models)
+Doing another recheck of how much embeddings change from params.00000 to params.best
 
     # for small
     python recheck_cosines.py small.src_init.txt best.small.src_init.txt 
@@ -143,6 +143,7 @@ Doing another recheck of how much embeddings change from params.00000 to params.
     python recheck_cosines.py large.trg_init.txt best.large.trg_init.txt
 
     # the output is an image file in the form of a histogram showing the frequency distribution on cosine distances between 0-1
+
 
 ## Significance testing
 

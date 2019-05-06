@@ -101,7 +101,7 @@ Doing a recheck if the initially used vectors of the sockeye-nmt-system are actu
     # for small
     bash sockeye_wmt_prembs.recheck.sh model_wmt17_small.glove && exit
     # for large
-    bash sockeye_wmt_prembs.recheck.shmodel_wmt17_large.glove} && exit
+    bash sockeye_wmt_prembs.recheck.sh model_wmt17_large.glove && exit
 
 [2] on local machine
 

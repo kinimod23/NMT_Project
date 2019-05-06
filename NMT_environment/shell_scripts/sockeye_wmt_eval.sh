@@ -37,7 +37,7 @@ OMP_NUM_THREADS=$num_threads python -m sockeye.translate \
 				-m $base/models/$model_name \
 				--beam-size 10 \
 				--length-penalty-alpha 1.0 \
-				--device-ids 5 \
+				--device-ids 6 \
 				--batch-size 100
 echo "============================================================"
 echo "rebuild original data"

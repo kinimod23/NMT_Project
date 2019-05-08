@@ -114,18 +114,14 @@ Doing a recheck if the initially used vectors of the sockeye-nmt-system are actu
 
 [3] download and transform vectors for rechecking
 
-    # for small
-    bash recheck_embs.sh model_wmt17_small.glove
-    # for large
+    # for baseline
+    bash recheck_embs.sh model_wmt17_basel
+    # for large glove
     bash recheck_embs.sh model_wmt17_large.glove
 
 
 [4] use script to compare pre-trained vs. initially used vectors
 
-    # for small
-    python recheck_initvecs.py small.src_init.txt small.glove.en.txt
-    python recheck_initvecs.py small.trg_init.txt small.glove.de.txt
-    # for large
     python recheck_initvecs.py large.src_init.txt large.glove.en.txt
     python recheck_initvecs.py large.trg_init.txt large.glove.de.txt
 
@@ -135,10 +131,10 @@ Doing a recheck if the initially used vectors of the sockeye-nmt-system are actu
 \
 Doing another recheck of how much embeddings change from params.00000 to params.best
 
-    # for small
-    python recheck_cosines.py small.src_init.txt best.small.src_init.txt 
-    python recheck_cosines.py small.trg_init.txt best.small.trg_init.txt
-    # for large
+    # for baseline
+    python recheck_cosines.py basel.src_init.txt best.basel.src_init.txt 
+    python recheck_cosines.py basel.trg_init.txt best.basel.trg_init.txt
+    # for large glove
     python recheck_cosines.py large.src_init.txt best.large.src_init.txt
     python recheck_cosines.py large.trg_init.txt best.large.trg_init.txt
 

@@ -2,48 +2,31 @@
 
 model_name=$1
 
-if [ "${model_name}" == 'model_wmt17_small.glove' ]; then
-	echo "============================================================"
-	echo "download en/de pre-trained vector elements for rechecking..."
-	echo "============================================================"
-	sleep 3
-	scp dpfuetze@rattle.ifi.uzh.ch:~/NMT_Project/NMT_environment/pre-trained_embs/glove/small..vecs.en.txt.npy ~/Desktop/recheck_embs/small.glove.en.npy
-	scp dpfuetze@rattle.ifi.uzh.ch:~/NMT_Project/NMT_environment/pre-trained_embs/glove/small.vecs.de.txt.npy ~/Desktop/recheck_embs/small.glove.de.npy
-	echo "============================================================"
-	echo "...and transform all elements into readable format"
-	echo "============================================================"
-	sleep 3
-	python np_transf.py small.glove.en.npy
-	python np_transf.py small.glove.de.npy
-	rm small.glove.en.npy
-	rm small.glove.de.npy
-	echo "--"
-	echo "saved as .txt files"
-	echo ""
+if [ "${model_name}" == 'model_wmt17_basel' ]; then
 	echo "============================================================"
 	echo "download initial sockeye-nmt-system's embedding vectors..."
 	echo "============================================================"
 	sleep 3
-	scp -r dpfuetze@rattle.ifi.uzh.ch:~/NMT_Project/NMT_environment/pre-trained_embs/glove/small.src_init.npz ~/Desktop/recheck_embs
-	scp -r dpfuetze@rattle.ifi.uzh.ch:~/NMT_Project/NMT_environment/pre-trained_embs/glove/small.trg_init.npz ~/Desktop/recheck_embs
+	scp -r dpfuetze@rattle.ifi.uzh.ch:~/NMT_Project/NMT_environment/pre-trained_embs/glove/basel.src_init.npz ~/Desktop/recheck_embs
+	scp -r dpfuetze@rattle.ifi.uzh.ch:~/NMT_Project/NMT_environment/pre-trained_embs/glove/basel.trg_init.npz ~/Desktop/recheck_embs
 	echo "============================================================"
 	echo "...and download sockeye's best checkpoint embedding vectors..."
 	echo "============================================================"
 	sleep 3
-	scp -r dpfuetze@rattle.ifi.uzh.ch:~/NMT_Project/NMT_environment/pre-trained_embs/glove/best.small.src_init.npz ~/Desktop/recheck_embs
-	scp -r dpfuetze@rattle.ifi.uzh.ch:~/NMT_Project/NMT_environment/pre-trained_embs/glove/best.small.trg_init.npz ~/Desktop/recheck_embs	
+	scp -r dpfuetze@rattle.ifi.uzh.ch:~/NMT_Project/NMT_environment/pre-trained_embs/glove/best.basel.src_init.npz ~/Desktop/recheck_embs
+	scp -r dpfuetze@rattle.ifi.uzh.ch:~/NMT_Project/NMT_environment/pre-trained_embs/glove/best.basel.trg_init.npz ~/Desktop/recheck_embs	
 	echo "============================================================"
 	echo "...and transform all elements into readable format"
 	echo "============================================================"
 	sleep 3
-	python np_transf.py small.src_init.npz
-	python np_transf.py small.trg_init.npz
-	python np_transf.py best.small.src_init.npz
-	python np_transf.py best.small.trg_init.npz
-	rm small.src_init.npz
-	rm small.trg_init.npz
-	rm best.small.src_init.npz
-	rm best.small.trg_init.npz	
+	python np_transf.py basel.src_init.npz
+	python np_transf.py basel.trg_init.npz
+	python np_transf.py best.basel.src_init.npz
+	python np_transf.py best.basel.trg_init.npz
+	rm basel.src_init.npz
+	rm basel.trg_init.npz
+	rm best.basel.src_init.npz
+	rm best.basel.trg_init.npz	
 	echo "--"
 	echo "saved as .txt files"
 	echo ""
